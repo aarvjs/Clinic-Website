@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -18,6 +19,7 @@ const iconMap = {
 };
 
 export default function ServiceCard({ service, index = 0 }) {
+  const [imgSrc, setImgSrc] = useState(service.image);
   const Icon = iconMap[service.icon] || Stethoscope;
 
   return (
@@ -32,13 +34,14 @@ export default function ServiceCard({ service, index = 0 }) {
       {/* Image */}
       <div style={{ position: "relative", height: 200, overflow: "hidden" }}>
         <Image
-          src={service.image}
+          src={imgSrc}
           alt={service.title}
           fill
           style={{ objectFit: "cover", transition: "transform 0.5s ease" }}
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.07)")}
           onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+          onError={() => setImgSrc("https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&auto=format&fit=crop&q=80")}
         />
         {/* Icon badge */}
         <div

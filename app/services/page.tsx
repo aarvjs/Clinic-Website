@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -16,6 +17,20 @@ const iconMap: Record<string, any> = {
   Baby,
   AlertCircle,
 };
+
+function ServiceRowImage({ src, alt }: { src: string; alt: string }) {
+  const [imgSrc, setImgSrc] = useState(src);
+  return (
+    <Image
+      src={imgSrc}
+      alt={alt}
+      fill
+      style={{ objectFit: "cover" }}
+      sizes="(max-width: 768px) 100vw, 45vw"
+      onError={() => setImgSrc("https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&auto=format&fit=crop&q=80")}
+    />
+  );
+}
 
 export default function ServicesPage() {
   return (
@@ -172,13 +187,7 @@ export default function ServicesPage() {
                       order: isEven ? 2 : 1,
                     }}
                   >
-                    <Image
-                      src={service.image}
-                      alt={service.title}
-                      fill
-                      style={{ objectFit: "cover" }}
-                      sizes="(max-width: 768px) 100vw, 45vw"
-                    />
+                    <ServiceRowImage src={service.image} alt={service.title} />
                   </div>
                 </motion.div>
               );

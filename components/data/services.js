@@ -63,7 +63,7 @@ export const services = [
     fullDesc:
       "Our pediatric department is dedicated to the health and wellbeing of children from newborns to teenagers. Our caring pediatricians provide preventive care, treat illnesses, and support healthy development at every stage.",
     icon: "Baby",
-    image: "https://images.unsplash.com/photo-1559757175-7cb0f9f0b76b?w=600&auto=format&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?w=600&auto=format&fit=crop&q=80",
     duration: "30–45 minutes",
     doctorType: "Pediatrician",
     treatments: ["Well-child visits", "Vaccinations", "Developmental screening", "Allergy testing", "Nutritional counseling"],
